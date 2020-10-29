@@ -84,44 +84,6 @@ services:
                 hard: 262144
         depends_on:
             - "clickhouse-zookeeper"
-
-    clickhouse-05:
-        image: yandex/clickhouse-server
-        hostname: clickhouse-05
-        container_name: clickhouse-05
-        ports:
-            - 9005:9000
-        volumes:
-                - ./config/clickhouse_config.xml:/etc/clickhouse-server/config.xml
-                - ./config/clickhouse_metrika.xml:/etc/clickhouse-server/metrika.xml
-                - ./config/macros/macros-05.xml:/etc/clickhouse-server/config.d/macros.xml
-                - ./config/users.xml:/etc/clickhouse-server/users.xml
-                # - ./data/server-05:/var/lib/clickhouse
-        ulimits:
-            nofile:
-                soft: 262144
-                hard: 262144
-        depends_on:
-            - "clickhouse-zookeeper"
-
-    clickhouse-06:
-        image: yandex/clickhouse-server
-        hostname: clickhouse-06
-        container_name: clickhouse-06
-        ports:
-            - 9006:9000
-        volumes:
-                - ./config/clickhouse_config.xml:/etc/clickhouse-server/config.xml
-                - ./config/clickhouse_metrika.xml:/etc/clickhouse-server/metrika.xml
-                - ./config/macros/macros-06.xml:/etc/clickhouse-server/config.d/macros.xml
-                - ./config/users.xml:/etc/clickhouse-server/users.xml
-                # - ./data/server-06:/var/lib/clickhouse
-        ulimits:
-            nofile:
-                soft: 262144
-                hard: 262144
-        depends_on:
-            - "clickhouse-zookeeper"
 networks:
     default:
         external:
